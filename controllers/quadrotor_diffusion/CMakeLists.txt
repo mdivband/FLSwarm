@@ -1,5 +1,0 @@
-add_library(quadrotor_diffusion MODULE quadrotor_diffusion.h quadrotor_diffusion.cpp)
-target_link_libraries(quadrotor_diffusion
-	argos3core_simulator
-	argos3plugin_simulator_footbot
-	argos3plugin_simulator_genericrobot)

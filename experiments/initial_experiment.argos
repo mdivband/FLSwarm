@@ -21,19 +21,20 @@
       <params alpha="7.5" delta="0.1" velocity="5" />
     </footbot_diffusion_controller>
 
-    <quadrotor_diffusion_controller id="qrd"
-	    library="build/controllers/quadrotor_diffusion/libquadrotor_diffusion.so">
-      <actuators>
-        <quadrotor_position implementation="default" />
-      </actuators>    
-      <sensors>
-        <footbot_proximity implementation="default" show_rays="true" />
-      </sensors>
-      <params alpha="7.5" delta="0.1" velocity="5" />
-    </quadrotor_diffusion_controller>
  </controllers>
+
+  <loop_functions library="build/loop_functions/initial_loop_functions/libinitial_loop_functions"
+                  label="initial_loop_functions">
+    <foraging items="15"
+              radius="0.1"
+              output="initial.txt" />
+  </loop_functions>
+
+  <arena size="5, 5, 2" center="0,0,1">
  
- <arena size="5, 5, 1" center="0,0,0.5">
+    <floor id="floor"
+           source="loop_functions"
+           pixels_per_meter="50" />
  
     <box id="wall_north" size="4,0.1,0.5" movable="false">
       <body position="0,2,0" orientation="0,0,0" />
